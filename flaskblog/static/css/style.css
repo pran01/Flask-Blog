@@ -1,0 +1,119 @@
+body{
+	background-color:#fff;
+	margin:0;
+}
+h1{
+	margin:0;
+}
+
+.navbar{
+	height:97px;
+	width:100%;
+	background:#808080;
+	color:white;
+}
+
+.navbar a{
+	float:left;
+	padding:12px 18px;
+	margin:0px;
+	color:white;
+	text-decoration:none;
+}
+.navbar a:hover{
+	background-color:#000000;
+}
+.navbar a.activelnk{
+	background-color:#29293d;
+}
+a.right{
+	float:right;
+}
+a.activelnk.right{
+	background-color:#29293d;
+	float:right;
+}
+.contents{
+	height:50%;
+	border:1px solid black;
+	margin:20px;
+	border-radius:20px;
+	padding:20px;
+}
+.contents ul{
+	list-style-type:none;
+}
+.contents li{
+	text-align:center;
+	text-transform:uppercase;
+	padding:5px;
+	letter-spacing:5px;
+	font-family:"Georgia";
+}
+.blog{
+	height:200px;
+	width:50%;
+	border:2px solid black;
+	margin:10px;
+	border-radius:20px;
+	padding:10px;
+	
+}
+.blog .blog-content{
+	border:1px solid black;
+	padding:10px;
+	height:140px;
+}
+.register-form{
+	border:1px solid black;
+	padding:50px;
+	padding-top:0px;
+	height:250px;
+	width:50%;
+	border-radius:20px;
+	margin :auto;
+	margin-top:50px;
+}
+form{
+	margin:auto;
+}
+.login-form{
+	border:1px solid black;
+	padding:50px;
+	height:200px;
+	width:50%;
+	border-radius:20px;
+	margin :auto;
+	margin-top: 50px;
+}
+.blog a{
+	text-decoration:none;
+	color:black;
+}
+.blog a:hover{
+	color:darkslategray;
+	font-weight: bold;
+}
+
+.profile{
+	height:200px;
+	width:50%;
+	border:2px solid black;
+	margin:120px 300px;
+	border-radius:20px;
+	padding:10px;
+	text-align: center;
+}
+
+.profile a{
+	text-decoration:none;
+	color:black;
+}
+.profile a:hover{
+	color:darkslategray;
+	font-weight: bolder;
+}
+
+.right{
+	float:right;
+}

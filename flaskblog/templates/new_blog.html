@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<title>New Blog</title>
+{% endblock %}
+
+{% block body %}
+	<div class="navbar">
+		<h1 align=center><b>BLOG</b></h1><br>
+		<a href="/">Home</a>
+		<a href="/about">About</a>
+		<a class="right"><img src={{url_for('static',filename='pics/search.png')}} height="10" width="10" alt="search"></img></a>
+        {%if current_user.is_authenticated%}
+		<a class="right" href="/logout">Logout</a>
+        <a class="activelnk right" href="/new_blog">Create</a>
+        <a class="right" href="/profile">{{current_user.name}}</a>
+		{%else%}
+		<a class="right" href="/register">Register</a>
+        <a class="right" href="/login">Login</a>
+		{%endif%}
+	</div>
+	<div class="newblog">
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+			<p>{{form.title.label}}</p>
+			<p>{{form.title(size=100)}}</p>
+				{% for error in form.title.errors %}
+				<span style="color:red">[{{ error }}]</span>
+				{% endfor %}
+			<p>
+				{{form.blog.label}}
+			</p>
+			<p>{{form.blog}}</p>
+				{% for error in form.blog.errors %}
+				<span style="color:red">[{{ error }}]</span>
+				{% endfor %}
+			<p>{{ form.submit }}</p>
+        </form>
+    </div>
+{% endblock %}

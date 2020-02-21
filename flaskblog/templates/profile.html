@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<title>Profile</title>
+{% endblock %}
+
+{% block body %}
+	<div class="navbar">
+		<h1 align=center><b>BLOG</b></h1><br>
+		<a href="/">Home</a>
+		<a href="/about">About</a>
+		<a class="right"><img src={{url_for('static',filename='pics/search.png')}} height="10" width="10" alt="search"></img></a>
+        {%if current_user.is_authenticated%}
+		<a class="right" href="/logout">Logout</a>
+        <a class="right" href="/new_blog">Create</a>
+        <a class="activelnk right" href="/profile">{{current_user.name}}</a>
+		{%else%}
+		<a class="right" href="/register">Register</a>
+        <a class="right" href="/login">Login</a>
+		{%endif%}
+	</div>
+	<div class="profile">
+		<h4>Username : {{current_user.name}}</h4>
+		<h4>Email : {{current_user.email}}</h4>
+		<a href="/edit_profile"><u>Edit Info</u></a> | <a href="/myblog"><u>My Posts</u></a>
+	</div>
+{% endblock %}

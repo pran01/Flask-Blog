@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<title>About</title>
+{% endblock %}
+
+{% block body %}
+	<div class="navbar">
+		<h1 align=center><b>BLOG</b></h1><br>
+		<a href="/">Home</a>
+		<a href={{url_for('about')}} class="activelnk">About</a>
+		<a class="right"><img src={{url_for('static',filename='pics/search.png')}} height="10" width="10" alt="search"></img></a>
+        {%if current_user.is_authenticated%}
+		<a class="right" href="/logout">Logout</a>
+        <a class="right" href="/new_blog">Create</a>
+        <a class="right" href="/profile">{{current_user.name}}</a>
+		{%else%}
+		<a class="right" href="/register">Register</a>
+        <a class="right" href="/login">Login</a>
+		{%endif%}
+	</div>
+	<div class="contents">
+		<h3 align="center">This is a blog website made with help of Flask.<br>
+            This is my first Project with Flask.<br>
+            Hope you like it.
+        </h3>
+	</div>
+
+{% endblock %}
