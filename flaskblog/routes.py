@@ -19,8 +19,9 @@ def register():
     form=RegisterForm()
     if form.validate_on_submit():
         hashed_password=generate_password_hash(form.password.data, method='sha256')
-        new_user=Users(name=form.username.data,email=form.email.data,passwd=hashed_password)
+        new_user=Users(name=form.username.data,email=form.email.data,passwd=hashed_password,confirmed=False)
         db.session.add(new_user)
+        db.session.commit()
         send_confirmation(new_user)
         flash("An email has been sent to confirm the email.")
         return redirect(url_for('login'))
@@ -36,8 +37,9 @@ def confirm_mail(token):
     if not user:
         flash('The token is invalid or expired.','warning')
         return redirect(url_for('register'))
+    user.confirmed=True
     db.session.commit()
-    flash('Registration Completed.')
+    flash('Email Verified.')
     return redirect(url_for('login'))
 
 

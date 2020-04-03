@@ -9,6 +9,7 @@ class Users(UserMixin,db.Model):
     email=db.Column(db.String(50), nullable=False, unique=True)
     passwd=db.Column(db.String(20), nullable=False)
     posts=db.relationship('Blogs',backref='author',lazy=True)
+    confirmed=db.Column(db.Boolean,nullable=False)
 
     def get_reset_token(self,expires_sec=1800):
         s=Serializer(app.config['SECRET_KEY'],expires_sec)
