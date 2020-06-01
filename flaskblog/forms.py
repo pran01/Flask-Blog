@@ -1,13 +1,13 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
-from wtforms.validators import DataRequired,Length,Email,EqualTo,ValidationError
+from wtforms.validators import DataRequired,Length,Email,EqualTo,ValidationError,email_validator
 from Flask_Blog.flaskblog.models import Users
 from flask_login import current_user
 
 
 class RegisterForm(FlaskForm):
     username=StringField('username',validators=[DataRequired(message='username can\'t be empty'),Length(min=5,max=10)])
-    email=StringField('email',validators=[Email(message='invalid email')])
+    email=StringField('email',validators=[Email()])
     password=PasswordField('password',validators=[DataRequired(message='password cannot be empty'),Length(min=8,max=80)])
     conf_password = PasswordField('confirm password',validators=[DataRequired(message='password cannot be empty'), EqualTo('password')])
     register=SubmitField('Register')
